@@ -2,8 +2,8 @@ from collections import defaultdict
 import os
 import pandas as pd
 
-root_dir = "/home/dewei/workspace/smell-net/real_time_testing"
-test_dir = "/home/dewei/workspace/smell-net/processed_real_time_testing"
+root_dir = "/home/dewei/workspace/smell-net/real_time_testing_spice"
+test_dir = "/home/dewei/workspace/smell-net/processed_real_time_testing_spice"
 
 data_paths = defaultdict(list)
 min_len = float('inf')  # Track minimum length across all series
@@ -23,8 +23,9 @@ for root, dirs, files in os.walk(root_dir):
 
             ingredients[cur_ingredient].append((filename, df))
 
+
 for ingredient in ingredients:
-    filename, df = ingredients[ingredient][0]
-    os.makedirs(os.path.join(test_dir, ingredient), exist_ok=True)
-    
-    df.to_csv(os.path.join(test_dir, ingredient, filename), index=False)
+    for filename, df in ingredients[ingredient]:
+        os.makedirs(os.path.join(test_dir, ingredient), exist_ok=True)
+        
+        df.to_csv(os.path.join(test_dir, ingredient, filename), index=False)

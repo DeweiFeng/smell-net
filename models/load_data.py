@@ -12,7 +12,7 @@ def subtract_first_row(df):
     return df - df.iloc[0]
 
 
-def load_sensor_data(training_path, testing_path, categories=None, real_time_testing_path=None):
+def load_sensor_data(training_path, testing_path, categories=None, real_time_testing_path=None, contrastive_learning=False):
     training_data = defaultdict(list)
     testing_data = defaultdict(list)
 
@@ -25,26 +25,27 @@ def load_sensor_data(training_path, testing_path, categories=None, real_time_tes
     # Walk through the training directory
     for folder_name in os.listdir(training_path):
         folder_path = os.path.join(training_path, folder_name)
+        if os.path.isdir(folder_path):  # Make sure it's a folder
+            for filename in os.listdir(folder_path):
+                if filename.endswith(".csv"):
+                    cur_path = os.path.join(folder_path, filename)
+                    df = pd.read_csv(cur_path)
+                    if contrastive_learning:
+                        df["ingredient"] = folder_name
+                    training_data[folder_name].append(df)
+                    min_len = min(min_len, df.shape[0])  # Update minimum length
+
+    for folder_name in os.listdir(testing_path):
+        folder_path = os.path.join(testing_path, folder_name)
+
         if categories is None or ingredient_to_category[folder_name] in categories:
             if os.path.isdir(folder_path):  # Make sure it's a folder
                 for filename in os.listdir(folder_path):
                     if filename.endswith(".csv"):
                         cur_path = os.path.join(folder_path, filename)
                         df = pd.read_csv(cur_path)
-                        df = subtract_first_row(df)
-                        training_data[folder_name].append(df)
-                        min_len = min(min_len, df.shape[0])  # Update minimum length
-
-    for folder_name in os.listdir(testing_path):
-        folder_path = os.path.join(testing_path, folder_name)
-
-        if ingredient_to_category[folder_name] in ["Nuts"]:
-            if os.path.isdir(folder_path):  # Make sure it's a folder
-                for filename in os.listdir(folder_path):
-                    if filename.endswith(".csv"):
-                        cur_path = os.path.join(folder_path, filename)
-                        df = pd.read_csv(cur_path)
-                        df = subtract_first_row(df)
+                        if contrastive_learning:
+                            df["ingredient"] = folder_name
                         testing_data[folder_name].append(df)
                         min_len = min(min_len, df.shape[0])  # Update minimum length
     
@@ -59,7 +60,8 @@ def load_sensor_data(training_path, testing_path, categories=None, real_time_tes
                         if filename.endswith(".csv"):
                             cur_path = os.path.join(folder_path, filename)
                             df = pd.read_csv(cur_path)
-                            df = subtract_first_row(df)
+                            if contrastive_learning:
+                                df["ingredient"] = folder_name
                             real_time_testing_data[folder_name].append(df)
                             min_len = min(min_len, df.shape[0])  # Update minimum length
         return training_data, testing_data, real_time_testing_data, min_len
@@ -229,3 +231,11 @@ def process_data_regular(data, le=None, batch_size=32, dropped_columns=None):
     data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
     return data_loader, le
+
+
+def create_pair_data(smell_data, gcms_data, gcms_data_encoded, le):
+    print(smell_data.iloc[0])
+    return
+    paired_data = []
+    for i in range(len(smell_data)):
+        le.transform(smell_data)

@@ -30,17 +30,17 @@ def main():
 
     training_path = "/home/dewei/workspace/smell-net/training"
     testing_path = "/home/dewei/workspace/smell-net/testing"
-    real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing"
+    real_time_testing_path = "/home/dewei/workspace/smell-net/processed_real_time_testing_spice"
 
-    training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=["Nuts"])
+    training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=["Spices"])
 
-    train_data_loader, le = process_data_regular(training_data)
+    train_data_loader, le = process_data_regular(training_data, dropped_columns=["Benzene", "Altitude"])
 
-    test_data_loader, _ = process_data_regular(testing_data, le)
+    test_data_loader, _ = process_data_regular(testing_data, le, dropped_columns=["Benzene", "Altitude"])
 
-    real_time_test_data_loader, _ = process_data_regular(real_time_testing_data, le)
+    real_time_test_data_loader, _ = process_data_regular(real_time_testing_data, le, dropped_columns=["Benzene", "Altitude"])
 
-    model = Encoder(input_dim=12)
+    model = Encoder(input_dim=10)
 
     train(train_data_loader, model, logger, epochs=3)
 
