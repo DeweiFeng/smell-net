@@ -2,10 +2,10 @@ from models import *
 from load_data import *
 from train import *
 from evaluate import *
-from dataset import *
 import logging
 import os
 import time
+from dataset import FusionDataset
 from torch.utils.data import DataLoader, TensorDataset
 import torch
 
@@ -32,11 +32,11 @@ def main():
     real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing_spice"
     gcms_path = "/home/dewei/workspace/smell-net/processed_full_gcms_dataframe.csv"
 
-    period_len = 25
+    period_len=50
 
     for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
         logger.info(category)
-        training_data, testing_data,  real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=[category])
+        training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=[category])
 
         gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
@@ -46,25 +46,36 @@ def main():
 
         real_testing_data, real_testing_label, _ = prepare_data_gradient(real_time_testing_data, period_len=period_len, le=le)
 
-        # dataset = TensorDataset(torch.tensor(training_data), torch.tensor(training_label))
+        training_pair_data, _ = create_pair_data(training_data, training_label, gcms_scaled, le, fusion=True)
+
+        sensor_model = Encoder(input_dim=12, output_dim=32)
+        gcms_model = Encoder(input_dim=17, output_dim=32)
+
+        model = FusionModelWithGCMSDropout(
+            smell_encoder=sensor_model,
+            gcms_encoder=gcms_model,
+            combined_dim=100,
+            output_dim=len(le.classes_),
+            gcms_dropout_p=0.3
+        )
 
         batch_size = 32
-        epochs = 64
-        # data_loader = DataLoader(dataset, batch_size=batch_size)
-        
-        model = Encoder(input_dim=12, output_dim=50)
+        num_epochs = 64
 
-        # train(data_loader, model, logger, epochs=epochs)
+        # train_fusion_dataset = FusionDataset(training_pair_data, le=le)
 
-        # torch.save(model.state_dict(), f'saved_models/regular/gradient_period_{period_len}_model_weights.pth')
+        # data_loader = DataLoader(train_fusion_dataset, batch_size=batch_size)
+
+        # fusion_train(data_loader, model, logger, epochs=num_epochs)
+
+        # torch.save(model.state_dict(), f'saved_models/fusion/gradient_period_{period_len}_model_weights.pth')
+
+        model.load_state_dict(torch.load(f'saved_models/fusion/gradient_period_{period_len}_model_weights.pth'))
 
         dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
         data_loader = DataLoader(dataset, batch_size=batch_size)
-
-        model.load_state_dict(torch.load(f'saved_models/regular/gradient_period_{period_len}_model_weights.pth'))
-
-        regular_evaluate(model, data_loader, le, logger)
-        regular_evaluate_top5(model, data_loader, le, logger)
+        
+        fusion_evaluate(model, data_loader, le)
 
 
 if __name__ == "__main__":

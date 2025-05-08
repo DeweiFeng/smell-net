@@ -6,13 +6,14 @@ from collections import defaultdict
 from torch.utils.data import TensorDataset, DataLoader
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from utils import ingredient_to_category
+from dataset import PairedDataset, FusionDataset
 
 
 def subtract_first_row(df):
     return df - df.iloc[0]
 
 
-def load_sensor_data(training_path, testing_path, categories=None, real_time_testing_path=None, contrastive_learning=False):
+def load_sensor_data(training_path, testing_path, categories=None, real_time_testing_path=None):
     training_data = defaultdict(list)
     testing_data = defaultdict(list)
 
@@ -30,8 +31,6 @@ def load_sensor_data(training_path, testing_path, categories=None, real_time_tes
                 if filename.endswith(".csv"):
                     cur_path = os.path.join(folder_path, filename)
                     df = pd.read_csv(cur_path)
-                    if contrastive_learning:
-                        df["ingredient"] = folder_name
                     training_data[folder_name].append(df)
                     min_len = min(min_len, df.shape[0])  # Update minimum length
 
@@ -44,8 +43,6 @@ def load_sensor_data(training_path, testing_path, categories=None, real_time_tes
                     if filename.endswith(".csv"):
                         cur_path = os.path.join(folder_path, filename)
                         df = pd.read_csv(cur_path)
-                        if contrastive_learning:
-                            df["ingredient"] = folder_name
                         testing_data[folder_name].append(df)
                         min_len = min(min_len, df.shape[0])  # Update minimum length
     
@@ -54,16 +51,13 @@ def load_sensor_data(training_path, testing_path, categories=None, real_time_tes
         for folder_name in os.listdir(real_time_testing_path):
             folder_path = os.path.join(real_time_testing_path, folder_name)
 
-            if categories is None or ingredient_to_category[folder_name] in categories:
-                if os.path.isdir(folder_path):  # Make sure it's a folder
-                    for filename in os.listdir(folder_path):
-                        if filename.endswith(".csv"):
-                            cur_path = os.path.join(folder_path, filename)
-                            df = pd.read_csv(cur_path)
-                            if contrastive_learning:
-                                df["ingredient"] = folder_name
-                            real_time_testing_data[folder_name].append(df)
-                            min_len = min(min_len, df.shape[0])  # Update minimum length
+            if os.path.isdir(folder_path):  # Make sure it's a folder
+                for filename in os.listdir(folder_path):
+                    if filename.endswith(".csv"):
+                        cur_path = os.path.join(folder_path, filename)
+                        df = pd.read_csv(cur_path)
+                        real_time_testing_data[folder_name].append(df)
+                        min_len = min(min_len, df.shape[0])  # Update minimum length
         return training_data, testing_data, real_time_testing_data, min_len
     else:
         return training_data, testing_data, min_len
@@ -92,18 +86,22 @@ def load_gcms_data(path, le=None):
     return X_scaled, y_encoded, le, scaler
 
 
-def prepare_transformer_tensors(data, min_len):
+def prepare_data_transformer(data, le):
     X = []
     y = []
+    window_size = 100
+    stride = 50
 
     for ingredient, dfs in data.items():
         for df in dfs:
-            X.append(df.iloc[:min_len].values)  # Truncate to min_len
-            y.append(ingredient)
+            for start in range(0, len(df) - window_size + 1, stride):
+                window = df.iloc[start : start + window_size].values
+                X.append(window)
+                y.append(ingredient)
 
-    X = np.stack(X)  # shape: (N_samples, min_len, 12)
-    le = LabelEncoder()
-    y = le.fit_transform(y)
+    y = le.transform(y)
+
+    return X, y, le
 
     X_tensor = torch.tensor(X, dtype=torch.float32)
     y_tensor = torch.tensor(y, dtype=torch.long)
@@ -113,7 +111,7 @@ def prepare_transformer_tensors(data, min_len):
     return data_loader, le
 
 
-def prepare_data_gradient(data, dropped_columns=None, period_len=50, trim_len=10, le=None):
+def prepare_data_gradient(data, dropped_columns=None, period_len=50, trim_len=10, le=None, contrastive_learning=False):
     X = []
     y = []
 
@@ -160,13 +158,52 @@ def prepare_data_gradient(data, dropped_columns=None, period_len=50, trim_len=10
     else:
         y_encoded = le.transform(y)
 
-    X_tensor = torch.tensor(X_concat, dtype=torch.float32)
-    y_tensor = torch.tensor(y_encoded, dtype=torch.long)
+    return X_concat, y_encoded, le
 
-    dataset = TensorDataset(X_tensor, y_tensor)
-    data_loader = DataLoader(dataset, batch_size=32, shuffle=True)
 
-    return data_loader, le
+def prepare_data_transformer_gradient(data, le=None, dropped_columns=None, period_len=50, trim_len=10):
+    X = []
+    y = []
+    window_size = 100
+    stride = 50
+
+    for ingredient, dfs in data.items():
+        for df in dfs:
+            df = df.copy()
+
+            # Drop specified columns (if any)
+            if dropped_columns:
+                df.drop(
+                    columns=[col for col in dropped_columns if col in df.columns],
+                    inplace=True,
+                )
+
+            # Compute gradient (difference over period_len)
+            diff_data = df.diff(periods=period_len)
+            diff_data = diff_data.iloc[period_len:]  # Drop first rows with NaNs
+
+            # Trim first and last `trim_len` rows if long enough
+            if diff_data.shape[0] > 2 * trim_len:
+                diff_data = diff_data.iloc[trim_len:-trim_len]
+
+            # Keep only sensor columns
+            sensor_cols = [
+                col for col in diff_data.columns
+                if dropped_columns is None or col not in dropped_columns
+            ]
+
+            # Remove rows where all sensors are zero
+            diff_data = diff_data[~(diff_data[sensor_cols] == 0).all(axis=1)]
+
+            # Apply sliding window over gradient data
+            for start in range(0, len(diff_data) - window_size + 1, stride):
+                window = diff_data.iloc[start : start + window_size].values
+                X.append(window)
+                y.append(ingredient)
+
+    y_encoded = le.transform(y)
+
+    return X, y_encoded, le
 
 
 def filter_outliers(group):
@@ -191,7 +228,7 @@ def select_median_representative(group, n=1):
     return closest_rows
 
 
-def process_data_regular(data, le=None, batch_size=32, dropped_columns=None):
+def process_data_regular(data, le=None, dropped_columns=None):
     X = []
     y = []
 
@@ -227,15 +264,68 @@ def process_data_regular(data, le=None, batch_size=32, dropped_columns=None):
     X_tensor = torch.tensor(X_concat, dtype=torch.float32)
     y_tensor = torch.tensor(y_encoded, dtype=torch.long)
 
-    dataset = TensorDataset(X_tensor, y_tensor)
-    data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-
-    return data_loader, le
+    return X_tensor, y_tensor, le
 
 
-def create_pair_data(smell_data, gcms_data, gcms_data_encoded, le):
-    print(smell_data.iloc[0])
-    return
-    paired_data = []
-    for i in range(len(smell_data)):
-        le.transform(smell_data)
+def create_pair_data(smell_data, smell_label, gcms_data, le, fusion=False):
+    pair_data = []
+    
+    for i in range(len(smell_label)):
+        gcms_ix = smell_label[i]
+        if not fusion:
+            pair_data.append((gcms_data[gcms_ix], smell_data[i]))
+        else:
+            pair_data.append((gcms_data[gcms_ix], smell_data[i], gcms_ix))
+    return pair_data, le
+
+
+def apply_random_feature_dropout(X, dropout_fraction=0.25, seed=None):
+    """
+    Apply random feature dropout to a batch or dataset.
+
+    Parameters:
+    - X: torch.Tensor or np.ndarray, shape [batch_size, time_steps, feature_dim] or [batch_size, feature_dim]
+    - dropout_fraction: float, fraction of features to zero out (e.g., 0.25 → drop 25%)
+    - seed: int or None, random seed for reproducibility
+
+    Returns:
+    - X_dropped: same type as input, with specified features zeroed out
+    """
+    if seed is not None:
+        np.random.seed(seed)
+
+    if isinstance(X, np.ndarray):
+        X = torch.tensor(X)
+
+    feature_dim = X.shape[-1]
+    num_features_to_drop = int(feature_dim * dropout_fraction)
+
+    # Randomly select feature indices to drop
+    drop_indices = np.random.choice(feature_dim, num_features_to_drop, replace=False)
+    mask = torch.ones(feature_dim)
+    mask[drop_indices] = 0
+
+    # Apply mask
+    X_dropped = X * mask.to(X.device)
+
+    return X_dropped
+
+
+def apply_noise_injection(X, noise_scale=0.05, seed=None):
+    """
+    Add Gaussian noise to the input tensor.
+
+    Parameters:
+    - X: torch.Tensor, shape [batch_size, time_steps, feature_dim] or [batch_size, feature_dim]
+    - noise_scale: float, standard deviation of Gaussian noise
+    - seed: int or None, for reproducibility
+
+    Returns:
+    - X_noisy: torch.Tensor, same shape as input
+    """
+    if seed is not None:
+        torch.manual_seed(seed)
+
+    noise = torch.randn_like(X) * noise_scale
+    X_noisy = X + noise
+    return X_noisy

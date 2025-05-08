@@ -7,59 +7,75 @@ from load_data import *
 import torch.optim as optim
 
 
-def train(train_loader, model, logger, epochs=50):
-    # === 3. Train the model ===
+def train(train_loader, model, logger, epochs=50, feature_dropout_fn=None, noisy=False, lstm=False):
+    # Set device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
     criterion = nn.CrossEntropyLoss()
 
-    model.double()
+    # Start training
     model.train()
-
-    logger.info("Ready for training......")
-    logger.info(f"Running on device {device}")
+    logger.info(f"Training on device: {device}")
 
     for epoch in range(epochs):
         total_loss = 0
         correct = 0
         total = 0
-        for batch_x, batch_y in train_loader:
-            batch_x, batch_y = batch_x.to(device, dtype=torch.double), batch_y.to(
-                device
-            )
+
+        # Iterate through batches
+        for batch_x, batch_label in train_loader:
+            # Transfer to device
+            if noisy:
+                batch_x = apply_noise_injection(batch_x, noise_scale=0.05)
+
+            if feature_dropout_fn:
+                batch_x = apply_random_feature_dropout(batch_x)
+
+            batch_x = batch_x.to(device, dtype=torch.float32)  # Ensure the input type matches model expectations
+            batch_label = batch_label.to(device, dtype=torch.long)  # CrossEntropy expects long-type labels
+
+            # Zero gradients
             optimizer.zero_grad()
-            logits = model(batch_x)
 
-            loss = criterion(logits, batch_y)
+            # Forward pass
+            if not lstm:
+                logits = model(batch_x)
+            else:
+                logits, embedding = model(batch_x)
 
+            # Compute loss
+            loss = criterion(logits, batch_label)
+
+            # Backpropagation
             loss.backward()
 
+            # Gradient clipping
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
 
+            # Optimizer step
             optimizer.step()
-            total_loss += loss.item()
-            correct += (logits.argmax(dim=1) == batch_y).sum().item()
-            total += batch_y.size(0)
 
+            # Accumulate loss and accuracy
+            total_loss += loss.item()
+            correct += (logits.argmax(dim=1) == batch_label).sum().item()
+            total += batch_label.size(0)
+
+        # Calculate accuracy
         accuracy = correct / total * 100
-        logger.info(
-            f"Epoch {epoch+1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%"
-        )
+        logger.info(f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%")
 
 
 def contrastive_train(
-    sensor_encoder,
     gcms_encoder,
+    sensor_encoder,
     dataloader,
-    gcms_input_dim,
-    sensor_input_dim,
     logger,
-    embedding_dim=16,
-    hidden_dim=128,
     temperature=0.07,
     num_epochs=100,
+    feature_dropout_fn=None,
+    noisy=False
 ):
     # Put on GPU if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -78,7 +94,13 @@ def contrastive_train(
         sensor_encoder.train()
 
         total_loss = 0.0
-        for x_sensor, x_gcms in dataloader:
+        for x_gcms, x_sensor in dataloader:
+            if noisy:
+                x_sensor = apply_noise_injection(x_sensor, noise_scale=0.05)
+
+            if feature_dropout_fn:
+                x_sensor = apply_random_feature_dropout(x_sensor)
+
             x_gcms = x_gcms.to(device)
             x_sensor = x_sensor.to(device)
 
@@ -150,6 +172,64 @@ def representation_train(
 
         if (epoch + 1) % 10 == 0 or epoch == 0:
             print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Val Loss: {val_loss.item():.4f}, Val Acc: {val_acc.item():.4f}")
+
+
+def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=False, noisy=False):
+    # Set device
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
+    criterion = nn.CrossEntropyLoss()
+
+    # Start training
+    model.train()
+    logger.info(f"Training on device: {device}")
+
+    for epoch in range(epochs):
+        total_loss = 0
+        correct = 0
+        total = 0
+
+        # Iterate through batches
+        for batch_gcms, batch_sensor, batch_label in train_loader:
+            # Transfer to device
+            if noisy:
+                batch_sensor = apply_noise_injection(batch_sensor, noise_scale=0.05)
+
+            if feature_dropout_fn:
+                batch_sensor = apply_random_feature_dropout(batch_sensor)
+
+            batch_sensor = batch_sensor.to(device, dtype=torch.float32)  # Ensure the input type matches model expectations
+            batch_label = batch_label.to(device, dtype=torch.long)  # CrossEntropy expects long-type labels
+            batch_gcms = batch_gcms.to(device, dtype=torch.float32)
+
+            # Zero gradients
+            optimizer.zero_grad()
+
+            # Forward pass
+            logits = model(batch_sensor, batch_gcms)
+
+            # Compute loss
+            loss = criterion(logits, batch_label)
+
+            # Backpropagation
+            loss.backward()
+
+            # Gradient clipping
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+
+            # Optimizer step
+            optimizer.step()
+
+            # Accumulate loss and accuracy
+            total_loss += loss.item()
+            correct += (logits.argmax(dim=1) == batch_label).sum().item()
+            total += batch_label.size(0)
+
+        # Calculate accuracy
+        accuracy = correct / total * 100
+        logger.info(f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%")
 
 
 if __name__ == "__main__":

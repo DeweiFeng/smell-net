@@ -2,11 +2,11 @@ from models import *
 from load_data import *
 from train import *
 from evaluate import *
-from dataset import *
+from torch.utils.data import DataLoader, TensorDataset
 import logging
 import os
 import time
-from torch.utils.data import DataLoader, TensorDataset
+from dataset import *
 import torch
 
 log_dir = "/home/dewei/workspace/smell-net/logs"
@@ -32,7 +32,7 @@ def main():
     real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing_spice"
     gcms_path = "/home/dewei/workspace/smell-net/processed_full_gcms_dataframe.csv"
 
-    period_len = 25
+    period_len = 50
 
     for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
         logger.info(category)
@@ -46,25 +46,27 @@ def main():
 
         real_testing_data, real_testing_label, _ = prepare_data_gradient(real_time_testing_data, period_len=period_len, le=le)
 
-        # dataset = TensorDataset(torch.tensor(training_data), torch.tensor(training_label))
+        training_pair_data, _ = create_pair_data(training_data, training_label, gcms_scaled, le)
+
+        train_dataset = PairedDataset(training_pair_data)
+        sensor_model = Encoder(input_dim=12, output_dim=32)
+        gcms_model = Encoder(input_dim=17, output_dim=32)
 
         batch_size = 32
-        epochs = 64
-        # data_loader = DataLoader(dataset, batch_size=batch_size)
-        
-        model = Encoder(input_dim=12, output_dim=50)
+        num_epochs = 64
 
-        # train(data_loader, model, logger, epochs=epochs)
+        # sampler = UniqueGCMSampler(train_dataset.data, batch_size)
+        # loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
 
-        # torch.save(model.state_dict(), f'saved_models/regular/gradient_period_{period_len}_model_weights.pth')
+        # contrastive_train(gcms_model, sensor_model, loader, logger, num_epochs=num_epochs)
 
-        dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
-        data_loader = DataLoader(dataset, batch_size=batch_size)
+        # torch.save(sensor_model.state_dict(), f'saved_models/contrastive/gradient_period_{period_len}_sensor_model_weights.pth')
+        # torch.save(gcms_model.state_dict(), f'saved_models/contrastive/gradient_period_{period_len}_gcms_model_weights.pth')
 
-        model.load_state_dict(torch.load(f'saved_models/regular/gradient_period_{period_len}_model_weights.pth'))
-
-        regular_evaluate(model, data_loader, le, logger)
-        regular_evaluate_top5(model, data_loader, le, logger)
+        sensor_model.load_state_dict(torch.load(f'saved_models/contrastive/gradient_period_{period_len}_sensor_model_weights.pth'))
+        gcms_model.load_state_dict(torch.load(f'saved_models/contrastive/gradient_period_{period_len}_gcms_model_weights.pth'))
+            
+        contrastive_evaluate(testing_data, gcms_scaled, testing_label, gcms_model, sensor_model, logger)
 
 
 if __name__ == "__main__":

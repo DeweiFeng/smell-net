@@ -38,8 +38,10 @@ class TimeSeriesTransformer(nn.Module):
 
 
 class Encoder(nn.Module):
-    def __init__(self, input_dim, hidden_dim=128, output_dim=64, projection_dim=64):
+    def __init__(self, input_dim, hidden_dim=64, output_dim=50):
         super().__init__()
+
+        self.output_dim = output_dim
         # Base encoder
         self.encoder = nn.Sequential(
             nn.Linear(input_dim, hidden_dim),
@@ -55,22 +57,13 @@ class Encoder(nn.Module):
             nn.SiLU(),
         )
 
-        # Optional projection head (often used in contrastive learning)
-        self.projector = nn.Sequential(
-            nn.Linear(output_dim, projection_dim),
-            nn.BatchNorm1d(projection_dim),
-            nn.ReLU(),
-            nn.Linear(projection_dim, projection_dim),
-        )
 
-    def forward(self, x, project=True):
+    def forward(self, x):
         x = self.encoder(x)
-        if project:
-            x = self.projector(x)
         return x
 
 
-class TimeSeriesGCMSNet(nn.Module):
+class LSTMNet(nn.Module):
     def __init__(self, input_dim, hidden_dim, embedding_dim, num_classes):
         super().__init__()
         self.lstm = nn.LSTM(input_dim, hidden_dim, batch_first=True)
@@ -83,3 +76,27 @@ class TimeSeriesGCMSNet(nn.Module):
         embedding = self.embedding_layer(pooled)
         out = self.classifier(embedding)
         return out, embedding
+
+
+class FusionModelWithGCMSDropout(nn.Module):
+    def __init__(self, smell_encoder, gcms_encoder, combined_dim, output_dim, gcms_dropout_p=0.3):
+        super().__init__()
+        self.smell_encoder = smell_encoder
+        self.gcms_encoder = gcms_encoder
+
+        self.gcms_dropout_p = gcms_dropout_p
+
+        self.combined_fc = nn.Linear(smell_encoder.output_dim + gcms_encoder.output_dim, combined_dim)
+        self.classifier = nn.Linear(combined_dim, output_dim)
+
+    def forward(self, smell_input, gcms_input):
+        # Apply GCMS dropout only during training
+        if self.training and torch.rand(1).item() < self.gcms_dropout_p:
+            gcms_input = torch.zeros_like(gcms_input)
+
+        smell_feat = self.smell_encoder(smell_input)
+        gcms_feat = self.gcms_encoder(gcms_input)
+
+        combined = torch.cat([smell_feat, gcms_feat], dim=-1)
+        combined = F.relu(self.combined_fc(combined))
+        return self.classifier(combined)

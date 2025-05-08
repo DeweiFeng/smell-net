@@ -1,15 +1,13 @@
-from models import TimeSeriesTransformer, Encoder
-from load_data import (
-    load_sensor_data,
-    prepare_transformer_tensors,
-    process_data_regular,
-)
-from train import train
-from evaluate import transformer_evaluate, regular_evaluate
+from models import *
+from load_data import *
+from train import *
+from evaluate import *
+from torch.utils.data import DataLoader, TensorDataset
 import logging
 import os
 import time
-from dateset import PairedDataset
+from dataset import *
+import torch
 
 log_dir = "/home/dewei/workspace/smell-net/logs"
 
@@ -31,32 +29,42 @@ def main():
 
     training_path = "/home/dewei/workspace/smell-net/training"
     testing_path = "/home/dewei/workspace/smell-net/testing"
-    real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing"
+    real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing_nut"
     gcms_path = "/home/dewei/workspace/smell-net/processed_full_gcms_dataframe.csv"
 
-    Pair
+    for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
+        logger.info(category)
+        training_data, testing_data,  real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=[category])
 
-    training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=["Nuts"])
+        gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
-    train_data_loader, le = process_data_regular(training_data)
+        training_X, training_label, _ = process_data_regular(training_data, le)
 
-    pair_data = []
+        testing_X, testing_label, _ = process_data_regular(testing_data, le)
 
-    for i in range(train_data_loader):
-        pair_data.append((smell_data[i], gcms_data[int(y[i])]))
+        real_testing_X, real_testing_label, _ = process_data_regular(real_time_testing_data, le)
 
-    test_data_loader, _ = process_data_regular(testing_data, le)
+        training_pair_data, _ = create_pair_data(training_X, training_label, gcms_scaled, le)
 
-    real_time_test_data_loader, _ = process_data_regular(real_time_testing_data, le)
+        train_dataset = PairedDataset(training_pair_data)
+        sensor_model = Encoder(input_dim=12, output_dim=32)
+        gcms_model = Encoder(input_dim=17, output_dim=32)
 
-    sensor_model = Encoder(input_dim=12)
-    gcms_model = Encoder(input_dim=12)
+        batch_size = 32
+        num_epochs = 64
 
-    train(train_data_loader, model, logger, epochs=3)
+        # sampler = UniqueGCMSampler(train_dataset.data, batch_size)
+        # loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
 
-    regular_evaluate(model, test_data_loader, le, logger)
+        # contrastive_train(gcms_model, sensor_model, loader, logger, num_epochs=num_epochs, feature_dropout_fn=True)
 
-    regular_evaluate(model, real_time_test_data_loader, le, logger)
+        # torch.save(sensor_model.state_dict(), 'saved_models/contrastive/dropout_sensor_model_weights.pth')
+        # torch.save(gcms_model.state_dict(), 'saved_models/contrastive/dropout_gcms_model_weights.pth')
+
+        sensor_model.load_state_dict(torch.load('saved_models/contrastive/regular_sensor_model_weights.pth'))
+        gcms_model.load_state_dict(torch.load('saved_models/contrastive/regular_gcms_model_weights.pth'))
+            
+        contrastive_evaluate(testing_X, gcms_scaled, testing_label, gcms_model, sensor_model, logger)
 
 
 if __name__ == "__main__":
