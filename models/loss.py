@@ -1,4 +1,5 @@
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 
 
@@ -28,3 +29,27 @@ def cross_modal_contrastive_loss(z1, z2, temperature=0.07):
     loss = 0.5 * (loss_12 + loss_21)
 
     return loss
+
+
+class CrossModalTranslationLoss(nn.Module):
+    def __init__(self, lambda_=0.5):
+        """
+        lambda_: weight for the GC-MS translation loss (MSE),
+                 (1 - lambda_) is used for classification loss
+        """
+        super().__init__()
+        self.lambda_ = lambda_
+        self.mse_loss = nn.MSELoss()
+        self.ce_loss = nn.CrossEntropyLoss()
+
+    def forward(self, gcms_pred, gcms_target, class_logits, class_labels):
+        """
+        gcms_pred: predicted GC-MS vector (B, Dg)
+        gcms_target: ground truth GC-MS vector (B, Dg)
+        class_logits: predicted class logits (B, C)
+        class_labels: ground truth class index (B,)
+        """
+        loss_gcms = self.mse_loss(gcms_pred, gcms_target)
+        loss_class = self.ce_loss(class_logits, class_labels)
+        loss = self.lambda_ * loss_gcms + (1 - self.lambda_) * loss_class
+        return loss, loss_gcms, loss_class

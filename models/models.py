@@ -100,3 +100,45 @@ class FusionModelWithGCMSDropout(nn.Module):
         combined = torch.cat([smell_feat, gcms_feat], dim=-1)
         combined = F.relu(self.combined_fc(combined))
         return self.classifier(combined)
+    
+    
+class TranslationModel(nn.Module):
+    def __init__(self, smell_encoder, gcms_dim, num_classes, hidden_dim=None, dropout=0.1):
+        """
+        smell_encoder: a neural network that maps smell_input → latent embedding
+        gcms_dim: dimensionality of GC-MS vector to predict
+        num_classes: number of output classes
+        hidden_dim: optional hidden dimension for intermediate projection
+        dropout: dropout rate (applied before heads)
+        """
+        super().__init__()
+        self.smell_encoder = smell_encoder
+
+        # Optional projection layer
+        self.projection = nn.Identity()
+        proj_dim = smell_encoder.output_dim if hasattr(smell_encoder, "output_dim") else gcms_dim
+        if hidden_dim:
+            self.projection = nn.Sequential(
+                nn.Linear(proj_dim, hidden_dim),
+                nn.ReLU(),
+                nn.Dropout(dropout)
+            )
+            proj_dim = hidden_dim
+
+        # GC-MS regression head
+        self.gcms_head = nn.Linear(proj_dim, gcms_dim)
+
+        # Classification head
+        self.classifier = nn.Linear(proj_dim, num_classes)
+
+    def forward(self, smell_input):
+        """
+        Returns:
+            gcms_pred: predicted GC-MS vector
+            class_logits: classification logits
+        """
+        smell_feat = self.smell_encoder(smell_input)
+        feat = self.projection(smell_feat)
+        gcms_pred = self.gcms_head(feat)
+        class_logits = self.classifier(feat)
+        return gcms_pred, class_logits

@@ -69,7 +69,7 @@ def transformer_evaluate(model, testing_data, le, logger):
     #     logger.info(f"True: {true:15s} | Predicted: {pred}")
 
 
-def regular_evaluate(model, data_loader, le, logger=None, lstm=False):
+def regular_evaluate(model, data_loader, le, logger=None, lstm=False, translation=False):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     model.to(device)
@@ -86,6 +86,8 @@ def regular_evaluate(model, data_loader, le, logger=None, lstm=False):
 
             if lstm:
                 logits, embedding = model(inputs)
+            elif translation:
+                gcms_pred, logits = model(inputs)
             else:
                 logits = model(inputs)
             probs = torch.softmax(logits, dim=1)
@@ -108,7 +110,7 @@ def regular_evaluate(model, data_loader, le, logger=None, lstm=False):
     return acc
 
 
-def regular_evaluate_top5(model, data_loader, le, logger=None, lstm=False):
+def regular_evaluate_top5(model, data_loader, le, logger=None, lstm=False, translation=False):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     model.to(device)
@@ -125,6 +127,8 @@ def regular_evaluate_top5(model, data_loader, le, logger=None, lstm=False):
 
             if lstm:
                 logits, embedding = model(inputs)
+            elif translation:
+                _, logits = model(inputs)
             else:
                 logits = model(inputs)
             probs = torch.softmax(logits, dim=1)
@@ -208,6 +212,7 @@ def contrastive_evaluate(
     gcms_encoder,
     sensor_encoder,
     logger,
+    lstm=False
 ):
     """
     Evaluate how well the model matches GCMS embeddings to sensor embeddings.
@@ -230,8 +235,10 @@ def contrastive_evaluate(
 
     with torch.no_grad():
         z_gcms = F.normalize(gcms_encoder(gcms_data), dim=1)
-        z_smell = F.normalize(sensor_encoder(test_smell_data), dim=1)
-
+        if lstm:
+            z_smell = F.normalize(sensor_encoder(test_smell_data)[0], dim=1)
+        else:
+            z_smell = F.normalize(sensor_encoder(test_smell_data), dim=1)
     # Similarity matrix: [num_test_samples, num_gcms_samples]
     sim = torch.matmul(z_smell, z_gcms.T)
 

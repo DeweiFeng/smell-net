@@ -4,6 +4,7 @@ import logging
 from models import TimeSeriesTransformer, Encoder
 from loss import cross_modal_contrastive_loss
 from load_data import *
+from loss import *
 import torch.optim as optim
 
 
@@ -75,7 +76,8 @@ def contrastive_train(
     temperature=0.07,
     num_epochs=100,
     feature_dropout_fn=None,
-    noisy=False
+    noisy=False,
+    lstm=False,
 ):
     # Put on GPU if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -108,7 +110,11 @@ def contrastive_train(
 
             # Forward pass
             z_gcms = gcms_encoder(x_gcms)  # shape [batch_size, embedding_dim]
-            z_sensor = sensor_encoder(x_sensor)
+
+            if lstm:
+                z_sensor, _ = sensor_encoder(x_sensor)
+            else:
+                z_sensor = sensor_encoder(x_sensor)
 
             # Contrastive loss
             loss = cross_modal_contrastive_loss(z_gcms, z_sensor, temperature)
@@ -174,13 +180,15 @@ def representation_train(
             print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Val Loss: {val_loss.item():.4f}, Val Acc: {val_acc.item():.4f}")
 
 
-def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=False, noisy=False):
+def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=False, noisy=False, translation=False):
     # Set device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
     criterion = nn.CrossEntropyLoss()
+
+    loss_fn = CrossModalTranslationLoss()
 
     # Start training
     model.train()
@@ -200,6 +208,8 @@ def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=Fals
             if feature_dropout_fn:
                 batch_sensor = apply_random_feature_dropout(batch_sensor)
 
+            
+
             batch_sensor = batch_sensor.to(device, dtype=torch.float32)  # Ensure the input type matches model expectations
             batch_label = batch_label.to(device, dtype=torch.long)  # CrossEntropy expects long-type labels
             batch_gcms = batch_gcms.to(device, dtype=torch.float32)
@@ -207,11 +217,15 @@ def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=Fals
             # Zero gradients
             optimizer.zero_grad()
 
-            # Forward pass
-            logits = model(batch_sensor, batch_gcms)
+            if translation:
+                gcms_pred, logits = model(batch_sensor)
+                loss, _, _ = loss_fn(gcms_pred, batch_gcms, logits, batch_label)
+            else:
+                # Forward pass
+                logits = model(batch_sensor, batch_gcms)
 
-            # Compute loss
-            loss = criterion(logits, batch_label)
+                # Compute loss
+                loss = criterion(logits, batch_label)
 
             # Backpropagation
             loss.backward()
