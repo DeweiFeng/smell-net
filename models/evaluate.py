@@ -216,9 +216,11 @@ def contrastive_evaluate(
 ):
     """
     Evaluate how well the model matches GCMS embeddings to sensor embeddings.
-    Logs only:
+    Returns:
       - Top-1 accuracy
       - Top-5 accuracy
+      - Top-5 predicted indices per sample
+      - Top-5 cosine similarity scores (pre-softmax)
     """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -239,24 +241,28 @@ def contrastive_evaluate(
             z_smell = F.normalize(sensor_encoder(test_smell_data)[0], dim=1)
         else:
             z_smell = F.normalize(sensor_encoder(test_smell_data), dim=1)
-    # Similarity matrix: [num_test_samples, num_gcms_samples]
-    sim = torch.matmul(z_smell, z_gcms.T)
 
-    # Top-1 prediction
-    top1_pred = sim.argmax(dim=1)
-    top1_correct = (top1_pred == test_smell_label).float().mean().item() * 100
+        # Cosine similarity matrix: [num_test_samples, num_gcms_samples]
+        sim = torch.matmul(z_smell, z_gcms.T)
 
-    # Top-5 accuracy
-    top5_pred = torch.topk(sim, k=5, dim=1).indices  # [num_samples, 5]
-    top5_correct = (
-        top5_pred == test_smell_label.unsqueeze(1)
-    ).any(dim=1).float().mean().item() * 100
+        # Top-1 accuracy
+        top1_pred = sim.argmax(dim=1)
+        top1_correct = (top1_pred == test_smell_label).float().mean().item() * 100
+
+        # Top-5 predictions
+        top5_sim, top5_pred = torch.topk(sim, k=5, dim=1)  # values and indices
+        top5_correct = (
+            top5_pred == test_smell_label.unsqueeze(1)
+        ).any(dim=1).float().mean().item() * 100
 
     logger.info("------------------Test Statistics---------------------")
     logger.info(f"Top-1 Accuracy: {top1_correct:.2f}%")
     logger.info(f"Top-5 Accuracy: {top5_correct:.2f}%")
 
-    return top1_correct, top5_correct
+    print(top5_pred.cpu().numpy().shape)
+
+    return top1_correct, top5_correct, top5_pred.cpu().numpy(), top5_sim.cpu().numpy()
+
 
 def contrastive_evaluate_transformer(
     testing_data,

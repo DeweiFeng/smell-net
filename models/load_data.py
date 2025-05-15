@@ -13,7 +13,7 @@ def subtract_first_row(df):
     return df - df.iloc[0]
 
 
-def load_sensor_data(training_path, testing_path, categories=None, real_time_testing_path=None):
+def load_sensor_data(training_path, testing_path, ingredients=None, categories=None, real_time_testing_path=None):
     training_data = defaultdict(list)
     testing_data = defaultdict(list)
 
@@ -37,14 +37,24 @@ def load_sensor_data(training_path, testing_path, categories=None, real_time_tes
     for folder_name in os.listdir(testing_path):
         folder_path = os.path.join(testing_path, folder_name)
 
-        if categories is None or ingredient_to_category[folder_name] in categories:
-            if os.path.isdir(folder_path):  # Make sure it's a folder
-                for filename in os.listdir(folder_path):
-                    if filename.endswith(".csv"):
-                        cur_path = os.path.join(folder_path, filename)
-                        df = pd.read_csv(cur_path)
-                        testing_data[folder_name].append(df)
-                        min_len = min(min_len, df.shape[0])  # Update minimum length
+        if ingredients:
+            if folder_name in ingredients:
+                if os.path.isdir(folder_path):  # Make sure it's a folder
+                    for filename in os.listdir(folder_path):
+                        if filename.endswith(".csv"):
+                            cur_path = os.path.join(folder_path, filename)
+                            df = pd.read_csv(cur_path)
+                            testing_data[folder_name].append(df)
+                            min_len = min(min_len, df.shape[0])  # Update minimum length
+        else:
+            if categories is None or ingredient_to_category[folder_name] in categories:
+                if os.path.isdir(folder_path):  # Make sure it's a folder
+                    for filename in os.listdir(folder_path):
+                        if filename.endswith(".csv"):
+                            cur_path = os.path.join(folder_path, filename)
+                            df = pd.read_csv(cur_path)
+                            testing_data[folder_name].append(df)
+                            min_len = min(min_len, df.shape[0])  # Update minimum length
     
     if real_time_testing_path:
         real_time_testing_data = defaultdict(list)

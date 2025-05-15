@@ -208,8 +208,6 @@ def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=Fals
             if feature_dropout_fn:
                 batch_sensor = apply_random_feature_dropout(batch_sensor)
 
-            
-
             batch_sensor = batch_sensor.to(device, dtype=torch.float32)  # Ensure the input type matches model expectations
             batch_label = batch_label.to(device, dtype=torch.long)  # CrossEntropy expects long-type labels
             batch_gcms = batch_gcms.to(device, dtype=torch.float32)
