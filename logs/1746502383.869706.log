@@ -1,0 +1,7 @@
+2025-05-05 20:33:05,258 - INFO - Ready for training......
+2025-05-05 20:33:05,258 - INFO - Running on device cuda
+2025-05-05 20:33:13,998 - INFO - Epoch 01: Loss = 9254.8690, Accuracy = 49.00%
+2025-05-05 20:33:21,826 - INFO - Epoch 02: Loss = 2648.3928, Accuracy = 86.38%
+2025-05-05 20:33:29,665 - INFO - Epoch 03: Loss = 1205.8417, Accuracy = 93.10%
+2025-05-05 20:33:29,757 - INFO - ✅ Regular Evaluation Accuracy: 97.60%
+2025-05-05 20:33:29,864 - INFO - ✅ Regular Evaluation Accuracy: 41.27%

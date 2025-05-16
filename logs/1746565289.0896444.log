@@ -1,0 +1,653 @@
+2025-05-06 14:01:30,310 - INFO - Ready for training......
+2025-05-06 14:01:30,310 - INFO - Running on device cuda
+2025-05-06 14:01:32,663 - INFO - Epoch 01: Loss = 62.8045, Accuracy = 2.00%
+2025-05-06 14:01:34,676 - INFO - Epoch 02: Loss = 61.5753, Accuracy = 4.00%
+2025-05-06 14:01:36,695 - INFO - Epoch 03: Loss = 61.3049, Accuracy = 5.20%
+2025-05-06 14:01:38,713 - INFO - Epoch 04: Loss = 60.3352, Accuracy = 4.40%
+2025-05-06 14:01:40,725 - INFO - Epoch 05: Loss = 59.9042, Accuracy = 4.00%
+2025-05-06 14:01:42,752 - INFO - Epoch 06: Loss = 59.3740, Accuracy = 6.40%
+2025-05-06 14:01:44,778 - INFO - Epoch 07: Loss = 59.0880, Accuracy = 6.80%
+2025-05-06 14:01:46,809 - INFO - Epoch 08: Loss = 58.8119, Accuracy = 5.60%
+2025-05-06 14:01:48,821 - INFO - Epoch 09: Loss = 58.4925, Accuracy = 8.00%
+2025-05-06 14:01:50,838 - INFO - Epoch 10: Loss = 58.0966, Accuracy = 10.00%
+2025-05-06 14:01:52,830 - INFO - Epoch 11: Loss = 57.8683, Accuracy = 7.60%
+2025-05-06 14:01:54,856 - INFO - Epoch 12: Loss = 57.5114, Accuracy = 6.80%
+2025-05-06 14:01:56,864 - INFO - Epoch 13: Loss = 57.1418, Accuracy = 7.60%
+2025-05-06 14:01:58,883 - INFO - Epoch 14: Loss = 56.8676, Accuracy = 6.40%
+2025-05-06 14:02:00,935 - INFO - Epoch 15: Loss = 56.0962, Accuracy = 9.60%
+2025-05-06 14:02:02,990 - INFO - Epoch 16: Loss = 56.1908, Accuracy = 7.60%
+2025-05-06 14:02:05,072 - INFO - Epoch 17: Loss = 55.9693, Accuracy = 8.40%
+2025-05-06 14:02:07,153 - INFO - Epoch 18: Loss = 55.5325, Accuracy = 12.00%
+2025-05-06 14:02:09,233 - INFO - Epoch 19: Loss = 54.9867, Accuracy = 11.60%
+2025-05-06 14:02:11,314 - INFO - Epoch 20: Loss = 54.7335, Accuracy = 10.00%
+2025-05-06 14:02:13,387 - INFO - Epoch 21: Loss = 54.0843, Accuracy = 11.60%
+2025-05-06 14:02:15,452 - INFO - Epoch 22: Loss = 53.9235, Accuracy = 12.40%
+2025-05-06 14:02:17,524 - INFO - Epoch 23: Loss = 53.8974, Accuracy = 10.40%
+2025-05-06 14:02:19,580 - INFO - Epoch 24: Loss = 53.5141, Accuracy = 9.20%
+2025-05-06 14:02:21,645 - INFO - Epoch 25: Loss = 52.8583, Accuracy = 10.80%
+2025-05-06 14:02:23,671 - INFO - Epoch 26: Loss = 52.6402, Accuracy = 10.00%
+2025-05-06 14:02:25,719 - INFO - Epoch 27: Loss = 52.0741, Accuracy = 11.20%
+2025-05-06 14:02:27,774 - INFO - Epoch 28: Loss = 51.7806, Accuracy = 13.60%
+2025-05-06 14:02:29,811 - INFO - Epoch 29: Loss = 51.7391, Accuracy = 12.00%
+2025-05-06 14:02:31,877 - INFO - Epoch 30: Loss = 51.5333, Accuracy = 11.20%
+2025-05-06 14:02:33,954 - INFO - Epoch 31: Loss = 50.9057, Accuracy = 13.20%
+2025-05-06 14:02:36,013 - INFO - Epoch 32: Loss = 50.6044, Accuracy = 11.60%
+2025-05-06 14:02:38,076 - INFO - Epoch 33: Loss = 50.9457, Accuracy = 12.00%
+2025-05-06 14:02:40,110 - INFO - Epoch 34: Loss = 50.1727, Accuracy = 13.20%
+2025-05-06 14:02:42,175 - INFO - Epoch 35: Loss = 50.0065, Accuracy = 15.20%
+2025-05-06 14:02:44,210 - INFO - Epoch 36: Loss = 49.9058, Accuracy = 12.40%
+2025-05-06 14:02:46,281 - INFO - Epoch 37: Loss = 49.4281, Accuracy = 12.40%
+2025-05-06 14:02:48,342 - INFO - Epoch 38: Loss = 49.0051, Accuracy = 14.00%
+2025-05-06 14:02:50,414 - INFO - Epoch 39: Loss = 48.5854, Accuracy = 15.20%
+2025-05-06 14:02:52,486 - INFO - Epoch 40: Loss = 48.4074, Accuracy = 16.00%
+2025-05-06 14:02:54,571 - INFO - Epoch 41: Loss = 48.1144, Accuracy = 18.40%
+2025-05-06 14:02:56,646 - INFO - Epoch 42: Loss = 48.8441, Accuracy = 12.80%
+2025-05-06 14:02:58,733 - INFO - Epoch 43: Loss = 47.8951, Accuracy = 16.00%
+2025-05-06 14:03:00,807 - INFO - Epoch 44: Loss = 47.6662, Accuracy = 20.00%
+2025-05-06 14:03:02,847 - INFO - Epoch 45: Loss = 46.5299, Accuracy = 18.80%
+2025-05-06 14:03:04,900 - INFO - Epoch 46: Loss = 46.8414, Accuracy = 17.60%
+2025-05-06 14:03:06,993 - INFO - Epoch 47: Loss = 45.5657, Accuracy = 23.60%
+2025-05-06 14:03:09,083 - INFO - Epoch 48: Loss = 45.9495, Accuracy = 17.20%
+2025-05-06 14:03:11,150 - INFO - Epoch 49: Loss = 45.7529, Accuracy = 19.20%
+2025-05-06 14:03:13,254 - INFO - Epoch 50: Loss = 45.6031, Accuracy = 21.20%
+2025-05-06 14:03:15,323 - INFO - Epoch 51: Loss = 45.3817, Accuracy = 20.40%
+2025-05-06 14:03:17,409 - INFO - Epoch 52: Loss = 45.0550, Accuracy = 18.40%
+2025-05-06 14:03:19,497 - INFO - Epoch 53: Loss = 45.2268, Accuracy = 21.60%
+2025-05-06 14:03:21,582 - INFO - Epoch 54: Loss = 44.6504, Accuracy = 21.60%
+2025-05-06 14:03:23,659 - INFO - Epoch 55: Loss = 43.7666, Accuracy = 24.00%
+2025-05-06 14:03:25,748 - INFO - Epoch 56: Loss = 43.5087, Accuracy = 23.20%
+2025-05-06 14:03:27,814 - INFO - Epoch 57: Loss = 43.5493, Accuracy = 22.80%
+2025-05-06 14:03:29,907 - INFO - Epoch 58: Loss = 43.5848, Accuracy = 21.60%
+2025-05-06 14:03:31,981 - INFO - Epoch 59: Loss = 43.4811, Accuracy = 24.00%
+2025-05-06 14:03:34,186 - INFO - Epoch 60: Loss = 43.6046, Accuracy = 24.40%
+2025-05-06 14:03:36,655 - INFO - Epoch 61: Loss = 42.7578, Accuracy = 23.60%
+2025-05-06 14:03:38,753 - INFO - Epoch 62: Loss = 42.3418, Accuracy = 26.40%
+2025-05-06 14:03:40,802 - INFO - Epoch 63: Loss = 42.4879, Accuracy = 24.00%
+2025-05-06 14:03:42,859 - INFO - Epoch 64: Loss = 42.0889, Accuracy = 24.80%
+2025-05-06 14:03:44,928 - INFO - Epoch 65: Loss = 41.7029, Accuracy = 27.20%
+2025-05-06 14:03:47,002 - INFO - Epoch 66: Loss = 41.5951, Accuracy = 26.80%
+2025-05-06 14:03:49,086 - INFO - Epoch 67: Loss = 41.5907, Accuracy = 25.20%
+2025-05-06 14:03:51,163 - INFO - Epoch 68: Loss = 41.5611, Accuracy = 26.00%
+2025-05-06 14:03:53,226 - INFO - Epoch 69: Loss = 41.2561, Accuracy = 28.00%
+2025-05-06 14:03:55,270 - INFO - Epoch 70: Loss = 40.9125, Accuracy = 24.00%
+2025-05-06 14:03:57,316 - INFO - Epoch 71: Loss = 41.0098, Accuracy = 30.40%
+2025-05-06 14:03:59,367 - INFO - Epoch 72: Loss = 40.4671, Accuracy = 28.00%
+2025-05-06 14:04:01,429 - INFO - Epoch 73: Loss = 40.0413, Accuracy = 30.00%
+2025-05-06 14:04:03,488 - INFO - Epoch 74: Loss = 39.9225, Accuracy = 28.40%
+2025-05-06 14:04:05,538 - INFO - Epoch 75: Loss = 40.1133, Accuracy = 29.20%
+2025-05-06 14:04:07,617 - INFO - Epoch 76: Loss = 39.7723, Accuracy = 26.40%
+2025-05-06 14:04:09,673 - INFO - Epoch 77: Loss = 39.2867, Accuracy = 28.80%
+2025-05-06 14:04:11,744 - INFO - Epoch 78: Loss = 39.0144, Accuracy = 30.80%
+2025-05-06 14:04:13,828 - INFO - Epoch 79: Loss = 39.0317, Accuracy = 30.40%
+2025-05-06 14:04:15,898 - INFO - Epoch 80: Loss = 38.4061, Accuracy = 31.60%
+2025-05-06 14:04:17,958 - INFO - Epoch 81: Loss = 38.0416, Accuracy = 33.20%
+2025-05-06 14:04:20,004 - INFO - Epoch 82: Loss = 38.3389, Accuracy = 32.40%
+2025-05-06 14:04:22,061 - INFO - Epoch 83: Loss = 38.2100, Accuracy = 33.20%
+2025-05-06 14:04:24,133 - INFO - Epoch 84: Loss = 38.0344, Accuracy = 32.40%
+2025-05-06 14:04:26,202 - INFO - Epoch 85: Loss = 37.5289, Accuracy = 32.80%
+2025-05-06 14:04:28,271 - INFO - Epoch 86: Loss = 37.5988, Accuracy = 35.60%
+2025-05-06 14:04:30,321 - INFO - Epoch 87: Loss = 37.7190, Accuracy = 36.00%
+2025-05-06 14:04:32,371 - INFO - Epoch 88: Loss = 36.4699, Accuracy = 37.20%
+2025-05-06 14:04:34,425 - INFO - Epoch 89: Loss = 36.6850, Accuracy = 35.60%
+2025-05-06 14:04:36,502 - INFO - Epoch 90: Loss = 36.8968, Accuracy = 31.20%
+2025-05-06 14:04:38,571 - INFO - Epoch 91: Loss = 36.8236, Accuracy = 34.40%
+2025-05-06 14:04:40,629 - INFO - Epoch 92: Loss = 36.3055, Accuracy = 38.00%
+2025-05-06 14:04:42,705 - INFO - Epoch 93: Loss = 36.7163, Accuracy = 32.00%
+2025-05-06 14:04:44,759 - INFO - Epoch 94: Loss = 35.9928, Accuracy = 34.80%
+2025-05-06 14:04:46,812 - INFO - Epoch 95: Loss = 35.8997, Accuracy = 35.20%
+2025-05-06 14:04:48,884 - INFO - Epoch 96: Loss = 35.7967, Accuracy = 36.40%
+2025-05-06 14:04:50,928 - INFO - Epoch 97: Loss = 35.6298, Accuracy = 36.00%
+2025-05-06 14:04:52,973 - INFO - Epoch 98: Loss = 35.7736, Accuracy = 32.00%
+2025-05-06 14:04:55,023 - INFO - Epoch 99: Loss = 35.9687, Accuracy = 35.60%
+2025-05-06 14:04:57,101 - INFO - Epoch 100: Loss = 35.0387, Accuracy = 40.80%
+2025-05-06 14:04:59,134 - INFO - Epoch 101: Loss = 35.1210, Accuracy = 36.40%
+2025-05-06 14:05:01,208 - INFO - Epoch 102: Loss = 34.7790, Accuracy = 37.60%
+2025-05-06 14:05:03,266 - INFO - Epoch 103: Loss = 35.0631, Accuracy = 36.00%
+2025-05-06 14:05:05,317 - INFO - Epoch 104: Loss = 34.3824, Accuracy = 40.00%
+2025-05-06 14:05:07,378 - INFO - Epoch 105: Loss = 34.7332, Accuracy = 33.60%
+2025-05-06 14:05:09,427 - INFO - Epoch 106: Loss = 35.1555, Accuracy = 34.80%
+2025-05-06 14:05:11,474 - INFO - Epoch 107: Loss = 33.9935, Accuracy = 40.80%
+2025-05-06 14:05:13,533 - INFO - Epoch 108: Loss = 33.1746, Accuracy = 42.40%
+2025-05-06 14:05:15,596 - INFO - Epoch 109: Loss = 33.7763, Accuracy = 39.20%
+2025-05-06 14:05:17,656 - INFO - Epoch 110: Loss = 33.7994, Accuracy = 37.60%
+2025-05-06 14:05:19,883 - INFO - Epoch 111: Loss = 34.4794, Accuracy = 39.20%
+2025-05-06 14:05:22,323 - INFO - Epoch 112: Loss = 33.5830, Accuracy = 42.80%
+2025-05-06 14:05:24,406 - INFO - Epoch 113: Loss = 33.3255, Accuracy = 42.00%
+2025-05-06 14:05:26,469 - INFO - Epoch 114: Loss = 33.4886, Accuracy = 42.40%
+2025-05-06 14:05:28,523 - INFO - Epoch 115: Loss = 33.6705, Accuracy = 38.40%
+2025-05-06 14:05:30,575 - INFO - Epoch 116: Loss = 33.2440, Accuracy = 44.00%
+2025-05-06 14:05:32,627 - INFO - Epoch 117: Loss = 32.6518, Accuracy = 43.60%
+2025-05-06 14:05:34,662 - INFO - Epoch 118: Loss = 32.6480, Accuracy = 43.60%
+2025-05-06 14:05:36,696 - INFO - Epoch 119: Loss = 32.5157, Accuracy = 36.40%
+2025-05-06 14:05:38,753 - INFO - Epoch 120: Loss = 32.3682, Accuracy = 42.40%
+2025-05-06 14:05:40,801 - INFO - Epoch 121: Loss = 32.4438, Accuracy = 42.40%
+2025-05-06 14:05:42,862 - INFO - Epoch 122: Loss = 32.2352, Accuracy = 44.80%
+2025-05-06 14:05:44,905 - INFO - Epoch 123: Loss = 32.3475, Accuracy = 42.40%
+2025-05-06 14:05:46,953 - INFO - Epoch 124: Loss = 32.4044, Accuracy = 42.80%
+2025-05-06 14:05:49,062 - INFO - Epoch 125: Loss = 31.5923, Accuracy = 42.80%
+2025-05-06 14:05:51,118 - INFO - Epoch 126: Loss = 31.2412, Accuracy = 43.20%
+2025-05-06 14:05:53,185 - INFO - Epoch 127: Loss = 31.2226, Accuracy = 40.40%
+2025-05-06 14:05:55,258 - INFO - Epoch 128: Loss = 31.6737, Accuracy = 47.60%
+2025-05-06 14:05:57,319 - INFO - Epoch 129: Loss = 31.3409, Accuracy = 44.00%
+2025-05-06 14:05:59,391 - INFO - Epoch 130: Loss = 30.9523, Accuracy = 46.40%
+2025-05-06 14:06:01,450 - INFO - Epoch 131: Loss = 30.5497, Accuracy = 47.20%
+2025-05-06 14:06:03,534 - INFO - Epoch 132: Loss = 31.7069, Accuracy = 41.20%
+2025-05-06 14:06:05,602 - INFO - Epoch 133: Loss = 31.0263, Accuracy = 41.20%
+2025-05-06 14:06:07,662 - INFO - Epoch 134: Loss = 31.0341, Accuracy = 43.60%
+2025-05-06 14:06:09,720 - INFO - Epoch 135: Loss = 29.6528, Accuracy = 48.00%
+2025-05-06 14:06:11,797 - INFO - Epoch 136: Loss = 31.2095, Accuracy = 47.60%
+2025-05-06 14:06:13,850 - INFO - Epoch 137: Loss = 30.6193, Accuracy = 47.20%
+2025-05-06 14:06:15,914 - INFO - Epoch 138: Loss = 30.2118, Accuracy = 46.80%
+2025-05-06 14:06:17,965 - INFO - Epoch 139: Loss = 30.0536, Accuracy = 46.80%
+2025-05-06 14:06:20,005 - INFO - Epoch 140: Loss = 30.1784, Accuracy = 50.00%
+2025-05-06 14:06:22,058 - INFO - Epoch 141: Loss = 29.9903, Accuracy = 46.80%
+2025-05-06 14:06:24,095 - INFO - Epoch 142: Loss = 30.1781, Accuracy = 45.60%
+2025-05-06 14:06:26,167 - INFO - Epoch 143: Loss = 29.4804, Accuracy = 52.00%
+2025-05-06 14:06:28,227 - INFO - Epoch 144: Loss = 30.2506, Accuracy = 48.00%
+2025-05-06 14:06:30,274 - INFO - Epoch 145: Loss = 30.2479, Accuracy = 46.40%
+2025-05-06 14:06:32,327 - INFO - Epoch 146: Loss = 29.5523, Accuracy = 46.40%
+2025-05-06 14:06:34,368 - INFO - Epoch 147: Loss = 28.9210, Accuracy = 47.60%
+2025-05-06 14:06:36,398 - INFO - Epoch 148: Loss = 29.2597, Accuracy = 49.60%
+2025-05-06 14:06:38,473 - INFO - Epoch 149: Loss = 29.9208, Accuracy = 46.40%
+2025-05-06 14:06:40,523 - INFO - Epoch 150: Loss = 29.2118, Accuracy = 49.20%
+2025-05-06 14:06:42,606 - INFO - Epoch 151: Loss = 28.2834, Accuracy = 54.80%
+2025-05-06 14:06:44,680 - INFO - Epoch 152: Loss = 28.2340, Accuracy = 49.20%
+2025-05-06 14:06:46,731 - INFO - Epoch 153: Loss = 28.5444, Accuracy = 50.40%
+2025-05-06 14:06:48,791 - INFO - Epoch 154: Loss = 28.4472, Accuracy = 49.20%
+2025-05-06 14:06:50,874 - INFO - Epoch 155: Loss = 28.4742, Accuracy = 48.00%
+2025-05-06 14:06:52,930 - INFO - Epoch 156: Loss = 27.4299, Accuracy = 52.40%
+2025-05-06 14:06:54,988 - INFO - Epoch 157: Loss = 27.9278, Accuracy = 51.60%
+2025-05-06 14:06:57,032 - INFO - Epoch 158: Loss = 28.7936, Accuracy = 48.80%
+2025-05-06 14:06:59,097 - INFO - Epoch 159: Loss = 27.9464, Accuracy = 52.80%
+2025-05-06 14:07:01,164 - INFO - Epoch 160: Loss = 27.4191, Accuracy = 53.60%
+2025-05-06 14:07:03,226 - INFO - Epoch 161: Loss = 27.5854, Accuracy = 55.20%
+2025-05-06 14:07:05,293 - INFO - Epoch 162: Loss = 28.3223, Accuracy = 50.40%
+2025-05-06 14:07:07,330 - INFO - Epoch 163: Loss = 27.7752, Accuracy = 52.40%
+2025-05-06 14:07:09,401 - INFO - Epoch 164: Loss = 27.6565, Accuracy = 52.80%
+2025-05-06 14:07:11,472 - INFO - Epoch 165: Loss = 26.7797, Accuracy = 51.20%
+2025-05-06 14:07:13,525 - INFO - Epoch 166: Loss = 28.1146, Accuracy = 51.60%
+2025-05-06 14:07:15,569 - INFO - Epoch 167: Loss = 27.5299, Accuracy = 51.60%
+2025-05-06 14:07:17,619 - INFO - Epoch 168: Loss = 27.6902, Accuracy = 53.20%
+2025-05-06 14:07:19,653 - INFO - Epoch 169: Loss = 26.8795, Accuracy = 55.20%
+2025-05-06 14:07:21,705 - INFO - Epoch 170: Loss = 26.4495, Accuracy = 53.20%
+2025-05-06 14:07:23,755 - INFO - Epoch 171: Loss = 26.2709, Accuracy = 53.60%
+2025-05-06 14:07:25,805 - INFO - Epoch 172: Loss = 26.9608, Accuracy = 52.80%
+2025-05-06 14:07:27,859 - INFO - Epoch 173: Loss = 26.8456, Accuracy = 51.20%
+2025-05-06 14:07:29,924 - INFO - Epoch 174: Loss = 26.6378, Accuracy = 50.40%
+2025-05-06 14:07:32,006 - INFO - Epoch 175: Loss = 26.4618, Accuracy = 51.20%
+2025-05-06 14:07:34,061 - INFO - Epoch 176: Loss = 26.7097, Accuracy = 56.40%
+2025-05-06 14:07:36,111 - INFO - Epoch 177: Loss = 27.1292, Accuracy = 50.00%
+2025-05-06 14:07:38,154 - INFO - Epoch 178: Loss = 26.6958, Accuracy = 52.40%
+2025-05-06 14:07:40,228 - INFO - Epoch 179: Loss = 26.7283, Accuracy = 55.20%
+2025-05-06 14:07:42,263 - INFO - Epoch 180: Loss = 26.1260, Accuracy = 50.40%
+2025-05-06 14:07:44,328 - INFO - Epoch 181: Loss = 26.2265, Accuracy = 54.40%
+2025-05-06 14:07:46,383 - INFO - Epoch 182: Loss = 25.7124, Accuracy = 56.80%
+2025-05-06 14:07:48,436 - INFO - Epoch 183: Loss = 25.4948, Accuracy = 57.60%
+2025-05-06 14:07:50,507 - INFO - Epoch 184: Loss = 25.4806, Accuracy = 57.60%
+2025-05-06 14:07:52,567 - INFO - Epoch 185: Loss = 25.5763, Accuracy = 56.80%
+2025-05-06 14:07:54,630 - INFO - Epoch 186: Loss = 26.0118, Accuracy = 55.60%
+2025-05-06 14:07:56,671 - INFO - Epoch 187: Loss = 25.6431, Accuracy = 53.20%
+2025-05-06 14:07:58,726 - INFO - Epoch 188: Loss = 25.7121, Accuracy = 53.60%
+2025-05-06 14:08:00,806 - INFO - Epoch 189: Loss = 25.7845, Accuracy = 56.00%
+2025-05-06 14:08:02,870 - INFO - Epoch 190: Loss = 24.6292, Accuracy = 56.40%
+2025-05-06 14:08:04,923 - INFO - Epoch 191: Loss = 24.5098, Accuracy = 58.00%
+2025-05-06 14:08:06,965 - INFO - Epoch 192: Loss = 25.4102, Accuracy = 54.80%
+2025-05-06 14:08:09,003 - INFO - Epoch 193: Loss = 24.7055, Accuracy = 57.60%
+2025-05-06 14:08:11,055 - INFO - Epoch 194: Loss = 25.2761, Accuracy = 58.00%
+2025-05-06 14:08:13,102 - INFO - Epoch 195: Loss = 24.7498, Accuracy = 57.20%
+2025-05-06 14:08:15,170 - INFO - Epoch 196: Loss = 24.6356, Accuracy = 58.00%
+2025-05-06 14:08:17,251 - INFO - Epoch 197: Loss = 24.7586, Accuracy = 58.80%
+2025-05-06 14:08:19,328 - INFO - Epoch 198: Loss = 24.3730, Accuracy = 56.00%
+2025-05-06 14:08:21,365 - INFO - Epoch 199: Loss = 24.8162, Accuracy = 56.80%
+2025-05-06 14:08:23,433 - INFO - Epoch 200: Loss = 24.3672, Accuracy = 57.60%
+2025-05-06 14:08:23,698 - INFO - ✅ Window-Level Test Accuracy: 22.89%
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: ginger          | Predicted: cumin
+2025-05-06 14:08:23,698 - INFO - True: brazil_nut      | Predicted: pili_nut
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: pili_nut
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: pili_nut
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: pili_nut
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: pili_nut
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: pili_nut
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: chervil
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: chervil
+2025-05-06 14:08:23,699 - INFO - True: brazil_nut      | Predicted: chervil
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: walnuts         | Predicted: peanuts
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: oregano         | Predicted: cumin
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: cabbage         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: mustard         | Predicted: cabbage
+2025-05-06 14:08:23,699 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,699 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,699 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,699 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,699 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,699 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,700 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,700 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,700 - INFO - True: chamomile       | Predicted: brussel_sprouts
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: tomato          | Predicted: tomato
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: broccoli
+2025-05-06 14:08:23,700 - INFO - True: broccoli        | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: banana          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: garlic          | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: coriander       | Predicted: cumin
+2025-05-06 14:08:23,700 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: pecans          | Predicted: pecans
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: mint
+2025-05-06 14:08:23,701 - INFO - True: asparagus       | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: brussel_sprouts | Predicted: brussel_sprouts
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: avocado         | Predicted: tomato
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: almond          | Predicted: almond
+2025-05-06 14:08:23,701 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,701 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,701 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,701 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,701 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,702 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,702 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,702 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,702 - INFO - True: dill            | Predicted: dill
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: chervil
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: chervil
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: chervil
+2025-05-06 14:08:23,702 - INFO - True: chervil         | Predicted: chervil
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: allspice        | Predicted: cumin
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: cashew
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: cashew
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: cashew
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: cashew
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: cashew
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: peanuts
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: peanuts
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: peanuts
+2025-05-06 14:08:23,702 - INFO - True: peanuts         | Predicted: peanuts
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: hazelnut        | Predicted: pili_nut
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,702 - INFO - True: turnip          | Predicted: tomato
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pecans
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: potato          | Predicted: pili_nut
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: broccoli
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: broccoli
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: cumin           | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: angelica        | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: sweet_potato    | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: saffron         | Predicted: cumin
+2025-05-06 14:08:23,703 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,703 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: apple           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: nutmeg          | Predicted: cumin
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mango           | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: strawberry      | Predicted: radish
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: turnip
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: turnip
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: turnip
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: tomato
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: tomato
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: tomato
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: walnuts
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: walnuts
+2025-05-06 14:08:23,704 - INFO - True: mint            | Predicted: walnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: pecans
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,704 - INFO - True: chestnuts       | Predicted: chestnuts
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cauliflower     | Predicted: cabbage
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: tomato
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: tomato
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: broccoli
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: broccoli
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: broccoli
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: broccoli
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: broccoli
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: broccoli
+2025-05-06 14:08:23,705 - INFO - True: cloves          | Predicted: broccoli
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: kiwi            | Predicted: walnuts
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: star_anise      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pili_nut        | Predicted: pili_nut
+2025-05-06 14:08:23,705 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,705 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: pistachios      | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: mandarin_orange | Predicted: cumin
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cashew          | Predicted: peanuts
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: dill
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: dill
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: dill
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: dill
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: dill
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: ginger
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: ginger
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: ginger
+2025-05-06 14:08:23,706 - INFO - True: cinnamon        | Predicted: ginger
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: radish          | Predicted: radish
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pecans
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pecans
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pecans
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pecans
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pecans
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pecans
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pili_nut
+2025-05-06 14:08:23,706 - INFO - True: chives          | Predicted: pili_nut
+2025-05-06 14:08:23,707 - INFO - True: chives          | Predicted: brussel_sprouts
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: mugwort         | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: lemon           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pineapple       | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: pear            | Predicted: radish
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin
+2025-05-06 14:08:23,707 - INFO - True: peach           | Predicted: cumin

@@ -1,0 +1,12 @@
+2025-05-06 12:46:06,994 - INFO - Ready for training......
+2025-05-06 12:46:06,994 - INFO - Running on device cuda
+2025-05-06 12:46:13,940 - INFO - Epoch 01: Loss = 13694.5461, Accuracy = 17.67%
+2025-05-06 12:46:20,110 - INFO - Epoch 02: Loss = 9884.8467, Accuracy = 39.98%
+2025-05-06 12:46:26,712 - INFO - Epoch 03: Loss = 8310.5826, Accuracy = 47.64%
+2025-05-06 12:46:33,313 - INFO - Epoch 04: Loss = 7598.2512, Accuracy = 51.02%
+2025-05-06 12:46:39,455 - INFO - Epoch 05: Loss = 7170.3046, Accuracy = 53.11%
+2025-05-06 12:46:45,612 - INFO - Epoch 06: Loss = 6839.8999, Accuracy = 55.04%
+2025-05-06 12:46:51,768 - INFO - Epoch 07: Loss = 6561.2199, Accuracy = 56.98%
+2025-05-06 12:46:58,332 - INFO - Epoch 08: Loss = 6285.1219, Accuracy = 58.86%
+2025-05-06 12:47:04,937 - INFO - Epoch 09: Loss = 5970.1409, Accuracy = 61.04%
+2025-05-06 12:47:11,889 - INFO - Epoch 10: Loss = 5637.9173, Accuracy = 63.59%

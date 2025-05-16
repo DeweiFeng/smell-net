@@ -1,0 +1,15 @@
+2025-05-12 10:24:23,457 - INFO - Nuts
+2025-05-12 10:24:24,311 - INFO - ✅ Regular Evaluation Accuracy: 6.76%
+2025-05-12 10:24:24,595 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 32.36%
+2025-05-12 10:24:24,596 - INFO - Spices
+2025-05-12 10:24:25,203 - INFO - ✅ Regular Evaluation Accuracy: 3.90%
+2025-05-12 10:24:25,420 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 24.58%
+2025-05-12 10:24:25,421 - INFO - Herbs
+2025-05-12 10:24:25,941 - INFO - ✅ Regular Evaluation Accuracy: 2.71%
+2025-05-12 10:24:26,162 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 29.93%
+2025-05-12 10:24:26,162 - INFO - Fruits
+2025-05-12 10:24:26,672 - INFO - ✅ Regular Evaluation Accuracy: 33.97%
+2025-05-12 10:24:26,890 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 44.26%
+2025-05-12 10:24:26,890 - INFO - Vegetables
+2025-05-12 10:24:27,404 - INFO - ✅ Regular Evaluation Accuracy: 3.24%
+2025-05-12 10:24:27,625 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 25.06%

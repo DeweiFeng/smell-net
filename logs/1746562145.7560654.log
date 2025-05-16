@@ -1,0 +1,22 @@
+2025-05-06 13:09:07,190 - INFO - Ready for training......
+2025-05-06 13:09:07,191 - INFO - Running on device cuda
+2025-05-06 13:09:13,203 - INFO - Epoch 01: Loss = 13869.8003, Accuracy = 15.94%
+2025-05-06 13:09:18,823 - INFO - Epoch 02: Loss = 11873.6016, Accuracy = 24.65%
+2025-05-06 13:09:24,546 - INFO - Epoch 03: Loss = 10958.8227, Accuracy = 28.61%
+2025-05-06 13:09:30,037 - INFO - Epoch 04: Loss = 10316.2665, Accuracy = 31.24%
+2025-05-06 13:09:35,339 - INFO - Epoch 05: Loss = 9843.5904, Accuracy = 33.19%
+2025-05-06 13:09:41,084 - INFO - Epoch 06: Loss = 9438.7599, Accuracy = 35.04%
+2025-05-06 13:09:46,399 - INFO - Epoch 07: Loss = 9108.5151, Accuracy = 36.32%
+2025-05-06 13:09:51,704 - INFO - Epoch 08: Loss = 8819.1831, Accuracy = 37.88%
+2025-05-06 13:09:57,081 - INFO - Epoch 09: Loss = 8590.4915, Accuracy = 38.70%
+2025-05-06 13:10:02,448 - INFO - Epoch 10: Loss = 8392.9310, Accuracy = 39.67%
+2025-05-06 13:10:07,771 - INFO - Epoch 11: Loss = 8205.7716, Accuracy = 40.48%
+2025-05-06 13:10:13,078 - INFO - Epoch 12: Loss = 8045.6868, Accuracy = 41.32%
+2025-05-06 13:10:18,402 - INFO - Epoch 13: Loss = 7893.0395, Accuracy = 42.06%
+2025-05-06 13:10:23,710 - INFO - Epoch 14: Loss = 7767.6617, Accuracy = 42.89%
+2025-05-06 13:10:29,029 - INFO - Epoch 15: Loss = 7636.2262, Accuracy = 43.72%
+2025-05-06 13:10:34,333 - INFO - Epoch 16: Loss = 7526.8699, Accuracy = 44.26%
+2025-05-06 13:10:39,787 - INFO - Epoch 17: Loss = 7414.5844, Accuracy = 44.74%
+2025-05-06 13:10:45,114 - INFO - Epoch 18: Loss = 7306.7757, Accuracy = 45.43%
+2025-05-06 13:10:50,438 - INFO - Epoch 19: Loss = 7221.6963, Accuracy = 45.90%
+2025-05-06 13:10:55,785 - INFO - Epoch 20: Loss = 7143.2316, Accuracy = 46.47%
